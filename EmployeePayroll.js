@@ -53,3 +53,37 @@ try{
 
 let newEmployeePayrollData = new EmployeePayrollData(2, "Terrisa", 20000, 'F', new Date());
 console.log(newEmployeePayrollData.toString());
+
+//UC14-ValidateIdSalaryGenderDate
+function ValidateIdSalaryGenderDate(id,salary,gender,date){
+    const idPattern = /^[1-9]d*$/;
+    const salaryPattern = /^[1-9]\d*(\.\d+)?$/;
+    const genderPattern = /^[MF]$/;
+    const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+    try{
+        if(!idPattern.test(id) || !salaryPattern.test(salary) || !genderPattern.test(gender) || !datePattern.test(date)){
+            throw new Error("Invalid data format");
+        }
+
+        const currentDate = new Date();
+        const inputDate = new Date(date);
+        
+        if(inputDate>currentDate){
+            throw new Error("Date can't be in the future");
+        }
+        return true;
+    }catch(error){
+        console.error(error.message);
+        return false;
+    }
+}
+
+const id = "1";
+const salary = "20000";
+const gender = "F";
+const date = "2023-06-25";
+
+const isValid = ValidateIdSalaryGenderDate(id,salary,gender,date);
+console.log("ID: "+id+" Salary: "+salary+" Gender: "+gender+" Date: "+date);
+console.log("/nData is valid: "+isValid);
