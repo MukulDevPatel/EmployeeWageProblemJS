@@ -37,3 +37,26 @@ console.log("Email 3 is Valid:", isValid5);
 const email6 = "abc.xyz$test@bridgelabz.co.in"; 
 const isValid6 = emailPattern3.test(email6);
 console.log("Email 4 is Valid:", isValid6); 
+
+
+//UC5
+const emailPattern4 = /^abc(\.[a-zA-Z0-9_\+-.]+)?@bridgelabz\.co\.in$/;
+// Output: Email 1 is Valid: true
+const finalEmail1 = "abc.xyz@bridgelabz.co.in";
+const isValid7 = emailPattern4.test(finalEmail1);
+console.log("Final Email 1 is Valid:", isValid7);
+
+// Output: Email 2 is Valid: true
+const finalEmail2 = "abc.xyz+info@bridgelabz.co.in";
+const isValid8 = emailPattern4.test(finalEmail2);
+console.log("Final Email 2 is Valid:", isValid8); 
+
+// Invalid TLD Output: Email 3 is Valid: false
+const finalEmail3 = "abc.xyz@bridgelabz.com"; 
+const isValid9 = emailPattern4.test(finalEmail3);
+console.log("Final Email 3 is Valid:", isValid9); 
+
+// Invalid special character Output: Email 4 is Valid: false
+const finalEmail4 = "abc.xyz$test@bridgelabz.co.in"; 
+const isValid10 = emailPattern4.test(finalEmail4);
+console.log("Final Email 4 is Valid:", isValid10);
