@@ -1,5 +1,5 @@
 //PIN code UC1
-const pinCodePattern = /^[1-9][0-9]{5}$/;
+const pinCodePattern = /^[1-9][0-9]{2}(\s)?[0-9]{3}$/;
 const pinCode = "400088";
 if (pinCodePattern.test(pinCode)){
     console.log("Valid Email: ",pinCode)
@@ -12,7 +12,15 @@ const pinCode2 = "A400088";
 const isValid = pinCodePattern.test(pinCode2);
 console.log("Is Valid: ",isValid);
 
-// UC2
+// UC3
 const pinCode3 = "400088B";
 const isValidate = pinCodePattern.test(pinCode3);
 console.log("Is Valid: ",isValidate);
+
+//UC4
+const pinCode4 = "400 088";
+if (pinCodePattern.test(pinCode4)){
+    console.log("Valid Email: ",pinCode4)
+}else{
+    console.log("Invalid Email");
+}
